@@ -1,0 +1,4 @@
+aws_region    = "ap-northeast-1"
+channel_name  = "laptop-webrtc-sample"
+iam_user_name = "laptop-webrtc-sample-user"
+
