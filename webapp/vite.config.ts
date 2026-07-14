@@ -23,7 +23,10 @@ export default defineConfig({
     },
   },
   server: {
-    host: "localhost",
+    // Tailscale Serve proxies to IPv4 loopback, so avoid localhost resolving to ::1.
+    host: "127.0.0.1",
+    // Tailscale Serve terminates HTTPS and proxies a private *.ts.net URL here.
+    allowedHosts: [".ts.net"],
     port: 5173,
     strictPort: true,
   },

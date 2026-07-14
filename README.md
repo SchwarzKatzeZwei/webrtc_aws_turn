@@ -92,6 +92,33 @@ http://localhost:5173/?mode=receiver
 
 別PCの開発サーバーへアクセスする必要はありません。それぞれのPCで`localhost`として起動します。
 
+### 1台で起動して、別PCからHTTPSで開く
+
+送信PCと受信PCを同じTailscaleネットワークへ参加させると、証明書を手動設定せずにプライベートなHTTPS URLを利用できます。
+
+Webアプリを起動したまま、別のターミナルで共有を開始します。
+
+```bash
+cd webapp
+npm run share
+```
+
+表示された`https://<端末名>.<tailnet名>.ts.net`を別PCで開きます。
+
+```text
+https://<端末名>.<tailnet名>.ts.net/?mode=sender
+https://<端末名>.<tailnet名>.ts.net/?mode=receiver
+```
+
+共有状態の確認と停止は次のコマンドです。
+
+```bash
+npm run share:status
+npm run share:stop
+```
+
+初回はTailscaleからHTTPS機能を有効化するための案内が表示される場合があります。AWS Access Keyをブラウザへ埋め込むローカル実験用構成のため、公開URLになるTailscale Funnelやパブリックトンネルは使用しないでください。
+
 ## 接続モード
 
 - `P2P優先`: STUNとTURNをICE Serverへ渡し、ブラウザが直接経路を優先します。直接接続できない場合はTURNへフォールバックします。

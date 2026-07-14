@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite",
+    "share": "tailscale serve --bg 5173",
+    "share:status": "tailscale serve status",
+    "share:stop": "tailscale serve --https=443 off",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
