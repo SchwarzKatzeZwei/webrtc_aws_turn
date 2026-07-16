@@ -15,6 +15,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
 # Terraform local state and generated files
 .terraform/
 *.tfstate

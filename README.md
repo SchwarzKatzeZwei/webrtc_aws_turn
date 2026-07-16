@@ -9,6 +9,7 @@
 ```text
 terraform/  Signaling Channel、IAM User、IAM Policy、Access Key
 webapp/     Vite + TypeScriptのSender／Receiver共通アプリ
+python/     Python + aiortcのReceiverデモ（NumPy／OpenCV／音声出力）
 ```
 
 Terraformでは、Signaling ChannelだけAWS Cloud Control Provider（`awscc`）、IAMは通常のAWS Provider（`aws`）で管理します。AWS側に作成される実体は次の4つだけです。
@@ -162,6 +163,12 @@ kinesisvideo:ConnectAsViewer
 cd terraform
 terraform destroy
 ```
+
+## Pythonで受信する
+
+ブラウザをMASTERとして起動したまま、PythonをVIEWERとして接続し、受信映像をNumPy配列へ変換してOpenCVで表示できます。音声トラックも同じWebRTC接続で受信し、別の音声デバイス出力へ流します。
+
+セットアップと実行方法は[`python/README.md`](python/README.md)を参照してください。
 
 `terraform destroy`完了後、不要になった`terraform.tfstate*`と各PCの`webapp/.env.local`を安全に削除してください。Access Keyが残っていないことはIAMコンソールまたはAWS CLIでも確認してください。
 

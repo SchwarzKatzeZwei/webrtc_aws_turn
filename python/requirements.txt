@@ -1,0 +1,8 @@
+aiortc>=1.14.0,<2
+av>=14.0.0,<17
+boto3>=1.42.0,<2
+numpy>=2.0.0,<3
+opencv-python>=4.10.0,<5
+python-dotenv>=1.0.0,<2
+sounddevice>=0.5.0,<1
+websockets>=15.0,<17
